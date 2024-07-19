@@ -3,7 +3,7 @@
 
 This script deletes ignore rules from the FOSSA API using issue IDs provided in a CSV file. 
 
-PLEASE USE CAUTION as this is a BULK DELETE script.
+## **** PLEASE USE CAUTION as this is a BULK DELETE script.
 
 ## Requirements
 
