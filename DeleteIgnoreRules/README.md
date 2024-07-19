@@ -1,7 +1,9 @@
 
 # Ignore Rules Deletion Script
 
-This script deletes ignore rules from the FOSSA API using issue IDs provided in a CSV file.
+This script deletes ignore rules from the FOSSA API using issue IDs provided in a CSV file. 
+
+PLEASE USE CAUTION as this is a BULK DELETE script.
 
 ## Requirements
 
