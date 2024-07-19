@@ -45,7 +45,7 @@ The script will save the fetched issues filtered by the specified severity to a 
 If you run the script with the following command:
 
 ```bash
-python fetchSecurityIssue.py --token abc123 --severity high --project my_project --revision 1.0.0
+python fetchSecurityIssues.py --token abc123 --severity high --project my_project --revision 1.0.0
 ```
 
 And there are issues with high severity, the script will save them to a file named `high_issues.json` in the same directory.
