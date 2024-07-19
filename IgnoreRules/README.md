@@ -61,10 +61,9 @@ The CSV file will contain the following fields:
 Upon successful execution, the script will print:
 ```
 Created IgnoreRules_licensing.csv successfully.
-.
 ```
 
-And the `IgnoreRules.csv` file will be created in the same directory as the script.
+And the ` IgnoreRules_licensing.csv` file will be created in the same directory as the script. For vulnerability Ignore rules; the file will be named as  IgnoreRules_vulnerability.csv.
 
 ## Notes
 
