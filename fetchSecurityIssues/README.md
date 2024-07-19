@@ -26,7 +26,7 @@ The script can be run from the command line with the following arguments:
 ### Example Command
 
 ```bash
-python fetchSecurityIssue.py --token YOUR_FOSSA_API_TOKEN --severity high --project YOUR_PROJECT_ID --revision YOUR_PROJECT_REVISION
+python fetchSecurityIssues.py --token YOUR_FOSSA_API_TOKEN --severity high --project YOUR_PROJECT_ID --revision YOUR_PROJECT_REVISION
 ```
 
 ### Arguments
