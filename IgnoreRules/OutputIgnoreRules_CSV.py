@@ -1,47 +1,63 @@
 import requests
-import sys
+import csv
 import argparse
 
 # Set up command line argument parsing
 parser = argparse.ArgumentParser(description="Convert Ignore Rules into CSV")
-parser.add_argument('scope', type=str, help='The scope to check ( "ORGANIZATION" or "PROJECT")')
-parser.add_argument('category', type=str, help='Category can be licensing or vulnerability')
+parser.add_argument('category', type=str, help='Category can be "licensing" or "vulnerability"')
 parser.add_argument('token', type=str, help='The FOSSA API key')
 
 args = parser.parse_args()
 
-
 # Main function
-def main():
+def main(token, category):
     url = 'https://app.fossa.com/api/v2/issues/exceptions'
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {args.token}'
+        'Authorization': f'Bearer {token}'
     }
     params = {
-        'filters[category]': args.category,
-        'category': args.category,
-        'ignoreScope': args.scope
+        'filters[category]': category,
+        'category': category
     }
-    data = { }
+    data = {}
 
     # Sending GET request
     response = requests.get(url, headers=headers, params=params, json=data)
 
     if response.status_code == 200:
-        print("Request successful.")
+        output_file_name = f'IgnoreRules_{category}.csv'
+        print(f"Created {output_file_name} successfully.")
         json_response = response.json()
-        # Iterate through response to fetch ids
-        for issue in json_response['exceptions']:
-            issue_id = issue['id']
-            issue_title = issue['exceptionTitle']
-            issue_note = issue['note']
-            issue_dep_locator = issue['dependencyProjectLocator']
-            scope = issue['ignoreScope']
-            #print(f"Found Ignore Issue: {issue_note}: {issue_title} : {scope}; Dependency:{issue_dep_locator}" )
+        
+        # Open a CSV file to write the data
+        with open(output_file_name, mode='w', newline='') as csv_file:
+            fieldnames = ['Id', 'Exception Title', 'Package Version', 'Created By', 'Note', 'Dependency Project Locator', 'Ignore Scope']  # Add the necessary field names here
+            writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+
+            writer.writeheader()
+
+            # Iterate through response to fetch ids and other required data
+            for issue in json_response['exceptions']:
+                issue_id = issue['id']
+                exceptionTitle = issue.get('exceptionTitle', 'exceptionTitle')  # Replace with actual field names and default values
+                note = issue.get('note', 'note')  # Replace with actual field names and default values
+                dependencyProjectLocator = issue.get('dependencyProjectLocator', 'dependencyProjectLocator')  # Replace with actual field names and default values
+                ignoreScope = issue.get('ignoreScope', 'default_value')  # Replace with actual field names and default values
+                packageScope = issue.get('packageScope', 'default_value')  # Replace with actual field names and default values
+                createdBy = issue.get('createdBy', 'default_value')  # Replace with actual field names and default values
+
+                writer.writerow({
+                    'Id': issue_id,
+                    'Exception Title': exceptionTitle,
+                    'Package Version': packageScope,
+                    'Dependency Project Locator': dependencyProjectLocator,
+                    'Ignore Scope': ignoreScope,
+                    'Created By': createdBy,
+                    'Note': note
+                })
     else:
         print(f"Request failed with status code {response.status_code}.")
 
-# Execute main function
 if __name__ == "__main__":
-   main()          
+    main(args.token, args.category)
