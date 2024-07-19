@@ -60,7 +60,8 @@ The CSV file will contain the following fields:
 
 Upon successful execution, the script will print:
 ```
-Created IgnoreRules.csv successfully.
+Created IgnoreRules_licensing.csv successfully.
+.
 ```
 
 And the `IgnoreRules.csv` file will be created in the same directory as the script.
