@@ -16,7 +16,7 @@ def main():
     url = 'https://app.fossa.com/api/v2/issues/exceptions'
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'Bearer {token}'
+        'Authorization': f'Bearer {args.token}'
     }
     params = {
         'filters[category]': args.category,
