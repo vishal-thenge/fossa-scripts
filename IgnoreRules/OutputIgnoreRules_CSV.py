@@ -4,15 +4,15 @@ import argparse
 
 # Set up command line argument parsing
 parser = argparse.ArgumentParser(description="Convert Ignore Rules into CSV")
-parser.add_argument('scope', type=str, help='The scope to check (e.g., "ORGANIZATION")')
-parser.add_argument('category', type=str, help='Category can be licensing or security')
+parser.add_argument('scope', type=str, help='The scope to check ( "ORGANIZATION" or "PROJECT")')
+parser.add_argument('category', type=str, help='Category can be licensing or vulnerability')
 parser.add_argument('token', type=str, help='The FOSSA API key')
 
 args = parser.parse_args()
 
 
 # Main function
-def main(token, depSubString):
+def main():
     url = 'https://app.fossa.com/api/v2/issues/exceptions'
     headers = {
         'Content-Type': 'application/json',
@@ -44,4 +44,4 @@ def main(token, depSubString):
 
 # Execute main function
 if __name__ == "__main__":
-   main(args.token, args.dependency)          
+   main()          
