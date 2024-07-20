@@ -1,7 +1,7 @@
 
 # Get Ignore Rules and Convert to CSV
 
-This Python script fetches ignore rules from the FOSSA API and converts them into a CSV file.
+This Python script fetches ignore rules from the FOSSA API and converts them into a CSV file. The CSV format allows for easy filtering, sorting & searching of Licensing & Security Ignore Rules.
 
 ## Prerequisites
 
