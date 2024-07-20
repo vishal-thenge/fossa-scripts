@@ -40,12 +40,12 @@ def main(token, category):
             # Iterate through response to fetch ids and other required data
             for issue in json_response['exceptions']:
                 issue_id = issue['id']
-                exceptionTitle = issue.get('exceptionTitle', 'exceptionTitle')  # Replace with actual field names and default values
-                note = issue.get('note', 'note')  # Replace with actual field names and default values
-                dependencyProjectLocator = issue.get('dependencyProjectLocator', 'dependencyProjectLocator')  # Replace with actual field names and default values
-                ignoreScope = issue.get('ignoreScope', 'default_value')  # Replace with actual field names and default values
-                packageScope = issue.get('packageScope', 'default_value')  # Replace with actual field names and default values
-                createdBy = issue.get('createdBy', 'default_value')  # Replace with actual field names and default values
+                exceptionTitle = issue.get('exceptionTitle', 'exceptionTitle') 
+                note = issue.get('note', 'note') 
+                dependencyProjectLocator = issue.get('dependencyProjectLocator', 'dependencyProjectLocator') 
+                ignoreScope = issue.get('ignoreScope', 'default_value') 
+                packageScope = issue.get('packageScope', 'default_value')  
+                createdBy = issue.get('createdBy', 'default_value')  
 
                 writer.writerow({
                     'Id': issue_id,
