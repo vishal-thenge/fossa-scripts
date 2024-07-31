@@ -6,9 +6,9 @@ on:
 
   pull_request: {}
 
-  merge_group:
+  #merge_group:
 
-    types: [checks_requested]
+   # types: [checks_requested]
 
  
 
@@ -40,7 +40,7 @@ jobs:
 
     # Skip any PR created by dependabot and any check triggered by merge group
 
-    if: (github.actor != 'dependabot[bot]') && (github.event != 'merge_group')
+    #if: (github.actor != 'dependabot[bot]') && (github.event != 'merge_group')
 
  
 
