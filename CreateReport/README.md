@@ -1,9 +1,9 @@
 
-# FOSSA API to CSV Script
+# Create a FOSSA License report CSV
 
 ## Description
 
-This script fetches data from the FOSSA API and saves it to a CSV file. It requires an authorization token and a revision ID to function.
+This script creates a License report including the License file matches and stores it in a CSV file. This uses the API to fetche data from the FOSSA API and saves it to a CSV file. It requires an authorization token and a revision ID to function.
 
 ## Usage
 
