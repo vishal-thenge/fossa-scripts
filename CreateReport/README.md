@@ -27,7 +27,7 @@ Replace `<your_api_token_here>` with your actual API token and `<your_revision_i
 ### Example
 
 ```sh
-python CreateLicenseReportCSV.py <your_api_token_here> <your_revision_id_here>
+python CreateLicenseReport_CSV.py <your_api_token_here> <your_revision_id_here>
 ```
 
 ### Output
