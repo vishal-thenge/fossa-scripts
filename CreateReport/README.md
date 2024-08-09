@@ -3,7 +3,7 @@
 
 ## Description
 
-This script creates a License report including the License file matches and stores it in a CSV file. This uses the API to fetche data from the FOSSA API and saves it to a CSV file. It requires an authorization token and a revision ID to function.
+This script creates a License report including the License file matches and stores it in a CSV file. This uses the API to fetch data from the FOSSA API and saves it to a CSV file. It requires an authorization token and a JSON file created by the fossa analyze --json 1> output.json to function.
 
 ## Usage
 
@@ -21,18 +21,19 @@ pip install requests
 ### Running the Script
 
 
-
-Replace `<your_api_token_here>` with your actual API token and `<your_revision_id_here>` with the desired revision ID.
+Arguments needed:
+  token       Authorization token for the FOSSA API
+  json_file   Path to the JSON file created bg fossa analyze --json 1> output.json
 
 ### Example
 
 ```sh
-python CreateLicenseReport_CSV.py <your_api_token_here> <your_revision_id_here>
+python CreateLicenseReport_CSV.py <your_api_token_here> <path to the JSON file created by fossa analyze>
 ```
 
 ### Output
 
-The script will generate a `LicenseReport.csv` file containing the data from the API response.
+The script will generate a `LicenseReport_withFileMatches.csv` file containing the data from the API response.
 
 
 ## License
