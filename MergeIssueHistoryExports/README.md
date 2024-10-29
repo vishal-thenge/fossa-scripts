@@ -20,28 +20,26 @@ python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2>
 The merged CSV file will be saved in the current working directory as merged_vulnerabilities.csv.
 
 
-
-
 ## Script Overview
 The script performs the following steps:
 
-Load CSV Files: Loads the data from both input CSV files into a dictionary where each record is uniquely identified by a combination of issueId and project.
+- Load CSV Files: Loads the data from both input CSV files into a dictionary where each record is uniquely identified by a combination of issueId and project.
+- Merge Records: Compares records from different CSV files with the same key and merges them if the remediatedAt or ignoredAt fields differ between the two.
+- Write Merged Data: Writes the merged data into a new CSV file called merged_vulnerabilities.csv.
 
-Merge Records: Compares records from different CSV files with the same key and merges them if the remediatedAt or ignoredAt fields differ between the two.
+### Logic for Merging Records
+- Records are uniquely identified by a combination of issueId and project.
+- Only records from different input CSV files are compared.
+- If the remediatedAt or ignoredAt fields differ between the two records, the entry with the non-empty value for these fields is retained.
 
-Write Merged Data: Writes the merged data into a new CSV file called merged_vulnerabilities.csv.
+### Notes
+- The merged file will overwrite any existing file with the same name (merged_vulnerabilities.csv).
+- Ensure both input CSV files have issueId and project columns for proper identification and merging.
 
-###Logic for Merging Records
-Records are uniquely identified by a combination of issueId and project.
-Only records from different input CSV files are compared.
-If the remediatedAt or ignoredAt fields differ between the two records, the entry with the non-empty value for these fields is retained.
-###Notes
-The merged file will overwrite any existing file with the same name (merged_vulnerabilities.csv).
-Ensure both input CSV files have issueId and project columns for proper identification and merging.
 ###Error Handling
-If the script does not receive exactly two arguments, it will display a usage message and exit.
-The script will print an error message if it cannot read or write the specified files.
+- If the script does not receive exactly two arguments, it will display a usage message and exit.
+- The script will print an error message if it cannot read or write the specified files.
 
 ##License
-This script is provided as-is, without any warranty. You are free to use, modify, and distribute it as needed. """)
+- This script is provided as-is, without any warranty. You are free to use, modify, and distribute it as needed. """)
 
