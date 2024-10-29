@@ -1,8 +1,6 @@
-with open("/mnt/data/README.md", "w") as file:
-    file.write("""
-# Merged Vulnerabilities CSV Script
+# Merged Issue History CSVs Script
 
-This script merges two CSV files containing vulnerability data based on unique identifiers (`issueId` and `project`). If a record exists in both CSVs, it will be merged only if the `remediatedAt` or `ignoredAt` fields have changed in one of the CSV files. The script will select the entry which has a non-empty `remediatedAt` or `ignoredAt` in the merged output.
+This script merges two CSV files containing vulnerability data based on unique identifiers (`issueId` and `project`). If a record exists in both CSVs, it will be merged into 1 entyr. This also considers if the `remediatedAt` or `ignoredAt` fields have changed in one of the CSV files. The script will select the entry which has a non-empty `remediatedAt` or `ignoredAt` in the merged output.
 
 ## Requirements
 
