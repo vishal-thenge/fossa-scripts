@@ -1,6 +1,6 @@
 # Merged Vulnerabilities CSV Script
 
-This script merges two CSV files containing vulnerability data based on unique identifiers (`issueId` and `project`). If a record exists in both CSVs, it will be merged only if the `remediatedAt` or `ignoredAt` fields have changed in one of the CSV files. The script will select the entry which has a non-empty `remediatedAt` or `ignoredAt` in the merged output.
+This script merges two CSV files containing Issue Histroy exports. Its best to execute the Issue Overview export for a one month period. If you need to merge 2 month data into one CSV use this script. The CSV's essentially contain vulnerability data based on unique identifiers (`issueId` and `project`). If a record exists in both CSVs, it will be merged only if the `remediatedAt` or `ignoredAt` fields have changed in one of the CSV files. The script will select the entry which has a non-empty `remediatedAt` or `ignoredAt` in the merged output.
 
 ## Requirements
 
