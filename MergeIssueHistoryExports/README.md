@@ -14,10 +14,11 @@ This script merges two CSV files containing vulnerability data based on unique i
 
 To use this script, run the following command:
 
-python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2>
-<IssueHistoryExport_Month_1>: Path to the first CSV file.
-<IssueHistoryExport_Month_2>: Path to the second CSV file.
-The merged CSV file will be saved in the current working directory as merged_vulnerabilities.csv.
+`python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2>`
+`<IssueHistoryExport_Month_1>` Path to the first CSV file.
+`<IssueHistoryExport_Month_2>` Path to the second CSV file.
+
+The merged CSV file will be saved in the current working directory as `merged_vulnerabilities.csv`.
 
 
 ## Script Overview
