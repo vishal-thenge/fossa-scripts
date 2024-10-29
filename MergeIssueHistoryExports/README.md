@@ -36,10 +36,10 @@ The script performs the following steps:
 - The merged file will overwrite any existing file with the same name (merged_vulnerabilities.csv).
 - Ensure both input CSV files have issueId and project columns for proper identification and merging.
 
-###Error Handling
+### Error Handling
 - If the script does not receive exactly two arguments, it will display a usage message and exit.
 - The script will print an error message if it cannot read or write the specified files.
 
-##License
+### License
 - This script is provided as-is, without any warranty. You are free to use, modify, and distribute it as needed. """)
 
