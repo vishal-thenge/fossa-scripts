@@ -3,7 +3,7 @@ import sys
 import os
 from datetime import datetime
 
-def merge_vulnerabilities(csv_file_1, csv_file_2):
+def merge_vulnerabilities(*csv_files):
     # Load CSV files into dictionaries
     data = {}
 
@@ -26,9 +26,9 @@ def merge_vulnerabilities(csv_file_1, csv_file_2):
                             elif not existing_row.get('remediatedAt') and not existing_row.get('ignoredAt'):
                                 data[key]["row"] = row
 
-    # Load data from both CSV files
-    load_csv(csv_file_1, 'file1')
-    load_csv(csv_file_2, 'file2')
+    # Load data from all CSV files
+    for idx, csv_file in enumerate(csv_files):
+        load_csv(csv_file, f'file{idx + 1}')
 
     # Write merged data to output CSV
     output_file = os.path.join(os.getcwd(), 'merged_vulnerabilities.csv')
@@ -44,12 +44,10 @@ def merge_vulnerabilities(csv_file_1, csv_file_2):
         print("No data to write.")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2>")
+    if len(sys.argv) < 3 or len(sys.argv) > 7:
+        print("Usage: python merge_vulnerabilities.py <csv_file_1> <csv_file_2> [<csv_file_3> ... <csv_file_6>]")
         sys.exit(1)
     
-    csv_file_1 = sys.argv[1]
-    csv_file_2 = sys.argv[2]
+    csv_files = sys.argv[1:]
     
-    merge_vulnerabilities(csv_file_1, csv_file_2)
-
+    merge_vulnerabilities(*csv_files)
