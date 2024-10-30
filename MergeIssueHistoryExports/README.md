@@ -1,7 +1,7 @@
-# Merged Vulnerabilities CSV Tool
+# Merge Issue Overview CSV export for Vulnerabilities  
 
 ## Overview
-This tool allows you to merge multiple CSV files containing FOSSA's Issue Overview Export for vulnerability data into a single CSV file. The script is capable of merging between 2 and 6 CSV files, combining the data while considering certain conditions for remediated and ignored vulnerabilities.
+This tool allows you to merge multiple CSV files containing FOSSA's Issue Overview Export for vulnerability data into a single CSV file. The script is capable of merging between 2 and 6 CSV files, combining the data while considering certain conditions for remediated and ignored vulnerabilities. 
 
 ## Features
 - Merges between 2 to 6 CSV files.
