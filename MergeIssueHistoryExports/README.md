@@ -1,46 +1,49 @@
-# Merged Vulnerabilities CSV Script
+# Merged Vulnerabilities CSV Tool
 
-This script merges two CSV files containing Issue Histroy exports. Its best to execute the Issue Overview export for a one month period. If you need to merge 2 month data into one CSV use this script. The CSV's essentially contain vulnerability data based on unique identifiers (`issueId` and `project`). If a record exists in both CSVs, it will be merged only if the `remediatedAt` or `ignoredAt` fields have changed in one of the CSV files. The script will select the entry which has a non-empty `remediatedAt` or `ignoredAt` in the merged output.
+## Overview
+This tool allows you to merge multiple CSV files containing FOSSA's Issue Overview Export for vulnerability data into a single CSV file. The script is capable of merging between 2 and 6 CSV files, combining the data while considering certain conditions for remediated and ignored vulnerabilities.
 
-## Requirements
+## Features
+- Merges between 2 to 6 CSV files.
+- Retains the most relevant data in case of conflicting entries.
+- Outputs a merged CSV file named `merged_vulnerabilities.csv`.
 
+## Prerequisites
 - Python 3.x
-- `csv` and `os` modules (included in standard Python library)
-- `BeautifulSoup` library (`beautifulsoup4` package)
+
+## Installation
+Clone the repository or download the script to your local machine.
 
 ## Usage
+To use the script, run the following command:
 
-### Command Line Usage
+```bash
+python merge_vulnerabilities.py <csv_file_1> <csv_file_2> [<csv_file_3> ... <csv_file_6>]
+```
 
-To use this script, run the following command:
+- `<csv_file_1>`, `<csv_file_2>`, etc.: Paths to the CSV files that you want to merge. You must provide at least 2 files, and you can provide up to 6 files.
 
-`python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2>`
-`<IssueHistoryExport_Month_1>` Path to the first CSV file.
-`<IssueHistoryExport_Month_2>` Path to the second CSV file.
+### Example
+```bash
+python merge_vulnerabilities.py vulnerabilities_1.csv vulnerabilities_2.csv vulnerabilities_3.csv
+```
+This command will merge the data from `vulnerabilities_1.csv`, `vulnerabilities_2.csv`, and `vulnerabilities_3.csv` into a new file called `merged_vulnerabilities.csv`.
 
-The merged CSV file will be saved in the current working directory as `merged_vulnerabilities.csv`.
+## Output
+The merged CSV file will be saved in the current working directory with the name `merged_vulnerabilities.csv`.
 
+## Logic Explanation
+- The script loads each CSV file into a dictionary for processing.
+- Each row is identified by a unique key consisting of `issueId` and `project`.
+- If the same key exists in multiple files, the script keeps the entry that contains non-empty `remediatedAt` or `ignoredAt` fields, prioritizing the most relevant information.
 
-## Script Overview
-The script performs the following steps:
+## Error Handling
+- The script requires at least 2 CSV files and will support up to 6 files.
+- If incorrect usage is detected (less than 2 or more than 6 files), the script will display a usage message and terminate.
 
-- Load CSV Files: Loads the data from both input CSV files into a dictionary where each record is uniquely identified by a combination of issueId and project.
-- Merge Records: Compares records from different CSV files with the same key and merges them if the remediatedAt or ignoredAt fields differ between the two.
-- Write Merged Data: Writes the merged data into a new CSV file called merged_vulnerabilities.csv.
+## Notes
+- Ensure that the CSV files have consistent headers for proper merging.
+- The output file will contain all combined data from the input files with the correct prioritization of fields.
 
-### Logic for Merging Records
-- Records are uniquely identified by a combination of issueId and project.
-- Only records from different input CSV files are compared.
-- If the remediatedAt or ignoredAt fields differ between the two records, the entry with the non-empty value for these fields is retained.
-
-### Notes
-- The merged file will overwrite any existing file with the same name (merged_vulnerabilities.csv).
-- Ensure both input CSV files have issueId and project columns for proper identification and merging.
-
-### Error Handling
-- If the script does not receive exactly two arguments, it will display a usage message and exit.
-- The script will print an error message if it cannot read or write the specified files.
-
-### License
-- This script is provided as-is, without any warranty. You are free to use, modify, and distribute it as needed. """)
-
+## License
+This project is licensed under the MIT License.
