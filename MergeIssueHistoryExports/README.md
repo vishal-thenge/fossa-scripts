@@ -18,14 +18,14 @@ Clone the repository or download the script to your local machine.
 To use the script, run the following command:
 
 ```bash
-python merge_vulnerabilities.py <csv_file_1> <csv_file_2> [<csv_file_3> ... <csv_file_6>]
+python mergeIssueHistoryCSVs.py <csv_file_1> <csv_file_2> [<csv_file_3> ... <csv_file_6>]
 ```
 
 - `<csv_file_1>`, `<csv_file_2>`, etc.: Paths to the CSV files that you want to merge. You must provide at least 2 files, and you can provide up to 6 files.
 
 ### Example
 ```bash
-python merge_vulnerabilities.py vulnerabilities_1.csv vulnerabilities_2.csv vulnerabilities_3.csv
+python mergeIssueHistoryCSVs.py vulnerabilities_1.csv vulnerabilities_2.csv vulnerabilities_3.csv
 ```
 This command will merge the data from `vulnerabilities_1.csv`, `vulnerabilities_2.csv`, and `vulnerabilities_3.csv` into a new file called `merged_vulnerabilities.csv`.
 
