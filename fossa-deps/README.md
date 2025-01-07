@@ -25,14 +25,14 @@ vendored-dependencies:
   
 ## How to Use
 
-1. Save the script as `generate_fossa_deps.sh`.
+1. Save the script as `CreateFOSSADeps.sh`.
 2. Make the script executable:
    ```bash
    chmod +x generate_fossa_deps.sh
    ```
 3. Run the script in the directory containing your RPM files:
    ```bash
-   ./generate_fossa_deps.sh
+   ./CreateFOSSADeps.sh
    ```
 4. The script will create a `fossa-deps.yaml` file in the current directory.
 
