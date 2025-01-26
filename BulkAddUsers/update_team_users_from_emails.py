@@ -11,7 +11,7 @@ def fetch_user_id_map(api_token):
         "Authorization": f"Bearer {api_token}"
     }
     try:
-        response = requests.get(f"{base_url}/users", headers=headers)
+        response = requests.get(f"{base_url}/users?count=12000", headers=headers)
         if response.status_code == 200:
             users = response.json()
             # Create a dictionary mapping email to user ID
