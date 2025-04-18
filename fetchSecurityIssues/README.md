@@ -12,6 +12,7 @@ You can install the required library using pip:
 
 ```bash
 pip install requests
+
 ```
 
 ## Usage
