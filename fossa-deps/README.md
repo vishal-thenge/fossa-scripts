@@ -67,4 +67,4 @@ vendored-dependencies:
 
 ## License
 
-This script is provided under the MIT License. Feel free to use and modify it as needed.
+Here is the license info . This script is provided under the MIT License. Feel free to use and modify it as needed. 
