@@ -11,6 +11,7 @@ def fetch_user_id_map(api_token):
         "Authorization": f"Bearer {api_token}"
     }
     try:
+        #https://app.fossa.com/api/teams/79800/members/addable?pageSize=20&page=1&search=
         response = requests.get(f"{base_url}/users?count=12000", headers=headers)
         if response.status_code == 200:
             users = response.json()
